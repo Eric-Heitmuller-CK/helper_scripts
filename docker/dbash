@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+then
+    echo "A container name must be provided"
+else
+    CONTAINER_ID=$(docker ps -aqf name=$1)
+
+    if [ -z "$CONTAINER_ID" ]
+    then
+        echo "Container with name "$1" not found"
+    else
+      docker exec -it $CONTAINER_ID bash
+    fi
+fi

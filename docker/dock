@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+function dock_bashto {
+    dbash $2
+}
+
+if [[ $# > 0 ]]; then
+  case "$1" in
+    bashto )
+      dock_bashto "$@"
+      ;;    
+  esac
+else
+  docker 
+fi
